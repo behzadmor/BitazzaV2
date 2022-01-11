@@ -1,0 +1,9 @@
+.Home-header {
+  background-color: #282c34;
+  flex-direction: row;
+  align-items: right;
+  justify-content: right;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  padding: 5px;
+}

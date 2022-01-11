@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "commonjs",
+    "target": "ESNext",
+    "strict": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "rootDir": ".",
+    "outDir": "./build",
+    "sourceMap": true,
+    "forceConsistentCasingInFileNames": true,
+    "removeComments": true,
+    "resolveJsonModule": true
+  },
+  "include": ["./**/*.ts"],
+  "exclude": ["node_modules", "./node_modules", "./log",  "**/node_modules/*", "/node_modules/*", "dist", "./dist", "./build"]
+}

@@ -1,0 +1,190 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a Bitazza Task for an application made with Express and documented with Swagger",
+    "version": "0.1.0",
+    "title": "Bitazza APIs",
+    "contact": {
+      "email": "Behzad_Mor@Yahoo.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://spdx.org/licenses/MIT.html"
+    }
+  },
+  "host": "ServerURL",
+  "basePath": "/api/topPerformers",
+  "tags": [
+    {
+      "name": "Performers",
+      "description": "APIs for Instruments and analyzing their history data"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/topGainers": {
+      "post": {
+        "tags": [
+          "Performers"
+        ],
+        "summary": "Returns top five Gainers in the time period specified",
+        "description": "",
+        "operationId": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Time period for analysing Instruments history data.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TimeFrame"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Result"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fromDate or toDate fields."
+          },
+          "404": {
+            "description": "No Instrument found"
+          }
+        }
+      }
+    },
+    "/topLosers": {
+      "post": {
+        "tags": [
+          "Performers"
+        ],
+        "summary": "Returns top five Losers in the time period specified",
+        "description": "",
+        "operationId": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Time period for analysing Instruments history data",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TimeFrame"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Result"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fromDate or toDate fields."
+          },
+          "404": {
+            "description": "No Instrument found"
+          }
+        }
+      }
+    },
+    "/topFiveGainersAndLosers": {
+      "post": {
+        "tags": [
+          "Performers"
+        ],
+        "summary": "Returns both top five Gainers and top five Losers in the time period specified",
+        "description": "",
+        "operationId": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Time period for analysing Instruments history data",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TimeFrame"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Result"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fromDate or toDate fields."
+          },
+          "404": {
+            "description": "No Instrument found"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Result": {
+      "type": "object",
+      "properties": {
+        "Symbol": {
+          "type": "string"
+        },
+        "Gain": {
+          "type": "number",
+          "format": "float",
+          "example": 122.5
+        }
+      }
+    },
+    "TimeFrame": {
+      "type": "object",
+      "required": [
+        "fromDate",
+        "toDate"
+      ],
+      "properties": {
+        "fromDate": {
+          "type": "string",
+          "format": "date",
+          "example": "2021-01-01",
+          "description": "start date"
+        },
+        "toDate": {
+          "type": "string",
+          "format": "date",
+          "example": "2021-02-02",
+          "description": "finish date"
+        }
+      }
+    }
+  }
+}

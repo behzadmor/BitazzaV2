@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "commonjs",
+    "target": "ESNext",
+    "checkJs": false,  
+    "strict": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node"
+  },
+  "exclude": ["node_modules", "./node_modules", "./log",  "**/node_modules/*", "/node_modules/*", "dist", "./dist"]
+}
